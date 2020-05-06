@@ -1,5 +1,11 @@
-# Jeff Geerling's Vagrant Box Packer Builds
+# Jeff Geerling's Vagrant Box Packer Builds, with some edits by Ryan Quey
 
+## Home config files: 
+make sure to put in the `shared/home-configs` and layout as if it was the home folder
+
+- Make sure to set VAGRANT_CLOUD_TOKEN on your [tokens page](https://app.vagrantup.com/settings/security).
+- in cmder, would use admin console, and `setx VAGRANT_CLOUD_TOKEN "..." /M`
+## Different build jsons
 ![Validate Packer JSON files](https://github.com/geerlingguy/packer-boxes/workflows/Validate%20Packer%20JSON%20files/badge.svg)
 
 This project contains the Packer build configurations for all of Jeff Geerling's (geerlingguy's) Vagrant Boxes. Each box builds a minimal base box for use with VirtualBox. Available boxes include:

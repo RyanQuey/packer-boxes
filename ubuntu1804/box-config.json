@@ -1,22 +1,47 @@
 {
   "variables": {
-    "version": ""
+    "version": "0.1.0"
   },
   "provisioners": [
+		{
+			"type": "file",
+			"source": "../shared/home-configs/.inputrc",
+			"destination": "/home/vagrant/"
+		},
+		{
+			"type": "file",
+			"source": "../shared/home-configs/.bashrc",
+			"destination": "/home/vagrant/"
+		},
+		{
+			"type": "file",
+			"source": "../shared/home-configs/.vimrc",
+			"destination": "/home/vagrant/"
+		},
+		{
+			"type": "file",
+			"source": "../shared/home-configs/.gitconfig",
+			"destination": "/home/vagrant/"
+		},
+		{
+			"type": "file",
+			"source": "../shared/home-configs/.gitignore",
+			"destination": "/home/vagrant/"
+		},
+		{
+			"type": "file",
+			"source": "../shared/home-configs/.vim/",
+			"destination": "/home/vagrant/"
+		},
     {
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/ansible.sh"
+      "script": "scripts/initialize.sh"
     },
     {
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "script": "scripts/setup.sh"
-    },
-    {
-      "type": "ansible-local",
-      "playbook_file": "../shared/main.yml",
-      "galaxy_file": "../shared/requirements.yml"
     },
     {
       "type": "shell",
@@ -76,13 +101,13 @@
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "1024"
+          "6000"
         ],
         [
           "modifyvm",
           "{{.Name}}",
           "--cpus",
-          "1"
+          "2"
         ]
       ]
     }

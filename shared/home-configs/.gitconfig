@@ -1,0 +1,7 @@
+[user]
+	name = Ryan Quey
+	email = quey.ryan@gmail.com
+[credential]
+	helper = store
+[core]
+	excludesfile = /home/ryan/.gitignore
