@@ -31,7 +31,7 @@
 		{
 			"type": "file",
 			"source": "../shared/home-configs/.vim/",
-			"destination": "/home/vagrant/"
+			"destination": "/home/vagrant/.vim"
 		},
     {
       "type": "shell",
@@ -78,7 +78,7 @@
         "<enter><wait>"
       ],
       "boot_wait": "10s",
-      "disk_size": 81920,
+      "disk_size": 64000,
       "guest_os_type": "Ubuntu_64",
       "headless": true,
       "http_directory": "http",
@@ -101,7 +101,7 @@
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "6000"
+          "1024"
         ],
         [
           "modifyvm",
@@ -115,13 +115,8 @@
   "post-processors": [
     [
       {
-        "output": "builds/{{.Provider}}-ubuntu1804.box",
+        "output": "builds/{{timestamp}}-{{.Provider}}-ubuntu1804.box",
         "type": "vagrant"
-      },
-      {
-        "type": "vagrant-cloud",
-        "box_tag": "geerlingguy/ubuntu1804",
-        "version": "{{user `version`}}"
       }
     ]
   ]

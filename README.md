@@ -33,19 +33,21 @@ The following software must be installed/present on your local machine before yo
   - [Packer](http://www.packer.io/)
   - [Vagrant](http://vagrantup.com/)
   - [VirtualBox](https://www.virtualbox.org/)
+  (note: removing ansible currently from this project. Maybe add back in later)
   - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 ## Usage
 
 Make sure all the required software (listed above) is installed, then cd into one of the box directories and run:
 
-    $ packer build -var 'version=1.2.0' box-config.json
+    `packer build box-config.json`
 
 After a few minutes, Packer should tell you the box was generated successfully, and the box was uploaded to Vagrant Cloud.
 
 > **Note**: This configuration includes a post-processor that pushes the built box to Vagrant Cloud (which requires a `VAGRANT_CLOUD_TOKEN` environment variable to be set); remove the `vagrant-cloud` post-processor from the Packer template to build the box locally and not push it to Vagrant Cloud. You don't need to specify a `version` variable either, if not using the `vagrant-cloud` post-processor.
 
 ### Building _all_ the boxes
+#### NOTE no longer doing, unless we add ansible back in
 
 Whenever VirtualBox is updated, it's best to re-build _all_ the base boxes so they have the latest guest additions.
 
@@ -57,6 +59,11 @@ You can also build and push just one box:
 
     ansible-playbook build-boxes.yml -e "{'boxes':['debian10']}"
 
+## Development
+when ready to make a new version, update the version in the box-config
+
+After changing, make sure to test with:
+`packer validate box-config.json`
 ## Testing built boxes
 
 There's an included Vagrantfile that allows quick testing of the built Vagrant boxes. From the same box directory, run the following command after building the box:
@@ -71,6 +78,6 @@ Test that the box works correctly, then tear it down with:
 
 MIT
 
-## Author
+## Original Author
 
-These configurations are maintained by [Jeff Geerling](https://www.jeffgeerling.com), author of [Ansible for DevOps](https://www.ansiblefordevops.com).
+Based on configurations are maintained by [Jeff Geerling](https://www.jeffgeerling.com), author of [Ansible for DevOps](https://www.ansiblefordevops.com).
