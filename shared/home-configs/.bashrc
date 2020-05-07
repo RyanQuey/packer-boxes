@@ -168,6 +168,13 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # for pyenv
-export PATH="/home/$HOME/.pyenv/bin:$PATH"
+export PATH="/home/$USER/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+source "/etc/profile.d/rvm.sh"
+
+# for use with spark locally
+export SPARK_HOME="/home/$USER/spark"
+
+
+

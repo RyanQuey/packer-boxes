@@ -15,8 +15,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 syntax on
 " wombat is also good, as is desert, and blackboard, but ones based on Atom are the best. 
 " Might try monokai-black sometime too, for strong black background 
-" onedark is great, but takes more configuration and cmder doesn't like 24bit
-" color, unless I can set that up. default looks great on cmder
+"
 colorscheme default 
 let g:lightline = {
   \ 'colorscheme': 'default',
@@ -39,9 +38,7 @@ nmap <silent> ,/ :nohlsearch<CR>
 let NERDTreeIgnore=[]
 noremap <C-N> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" show dotfiles
 let NERDTreeShowHidden=1
-
 
 " prevents arrow keys
 " map <up> <nop>

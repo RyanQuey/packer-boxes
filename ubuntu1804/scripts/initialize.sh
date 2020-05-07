@@ -17,7 +17,10 @@ apt-get -y install screen
 apt -y install net-tools
 
 # java 8
-apt-get -y install openjdk-8-jre-headless
+# TODO move to separate file
+sudo apt-get -y install openjdk-8-jdk
+
+sudo apt -y install maven
 ######################
 # setup my dev env folders
 echo "****************************"

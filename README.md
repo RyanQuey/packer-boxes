@@ -1,10 +1,13 @@
 # Jeff Geerling's Vagrant Box Packer Builds, with some edits by Ryan Quey
 
+
 ## Home config files: 
 make sure to put in the `shared/home-configs` and layout as if it was the home folder
 
 - Make sure to set VAGRANT_CLOUD_TOKEN on your [tokens page](https://app.vagrantup.com/settings/security).
 - in cmder, would use admin console, and `setx VAGRANT_CLOUD_TOKEN "..." /M`
+
+- Make some changes in the dev env and want to update this repository? Run the `update-home-configs.sh` script in the `shared/home-configs` folder and it will copy all of the home configs I use over automatically
 ## Different build jsons
 ![Validate Packer JSON files](https://github.com/geerlingguy/packer-boxes/workflows/Validate%20Packer%20JSON%20files/badge.svg)
 
