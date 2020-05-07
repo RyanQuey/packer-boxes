@@ -14,7 +14,10 @@ echo "****************************"
 echo "now getting vim"
 apt-get -y install vim
 apt-get -y install screen
+apt -y install net-tools
 
+# java 8
+apt-get -y install openjdk-8-jre-headless
 ######################
 # setup my dev env folders
 echo "****************************"

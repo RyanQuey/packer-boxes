@@ -11,9 +11,21 @@ apt -y update
 apt-cache policy docker-ce
 apt -y install docker-ce docker-ce-cli containerd.io
 echo "docker status"
+
+# I don't think it's necessary, but I'm not sure why not, since it's in official docker docs
+# systemctl enable docker
+
+# just check status
 systemctl status docker
 
-# so don't use for docker
+# so don't have to use sudo for docker
+# https://docs.docker.com/engine/install/linux-postinstall/
+# of course don't need sudo in here, since ran within root, but whatever
+sudo groupadd docker
 usermod -aG docker ${USER}
-su - ${USER}
+# I think this refreshes the bash groups so that it makes sure it gets added
+newgrp docker 
 
+# so docker has access to its own folder, give it access
+# TODO TEST I don't know if this is needed. Seemed to be needed for pulling apache/nifi image, or if not, it was adding the `usermod` or `groupadd` commands that I added after this chown command that did it. Ie., either need both that and this, or just that, and not this.
+sudo chown :docker -R /var/lib/docker/tmp
