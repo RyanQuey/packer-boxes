@@ -15,9 +15,11 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 syntax on
 " wombat is also good, as is desert, and blackboard, but ones based on Atom are the best. 
 " Might try monokai-black sometime too, for strong black background 
-colorscheme onedark 
+" onedark is great, but takes more configuration and cmder doesn't like 24bit
+" color, unless I can set that up. default looks great on cmder
+colorscheme default 
 let g:lightline = {
-  \ 'colorscheme': 'onedark',
+  \ 'colorscheme': 'default',
   \ }
 
 " set colors to 256
