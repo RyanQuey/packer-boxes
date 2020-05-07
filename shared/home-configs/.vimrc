@@ -39,6 +39,9 @@ nmap <silent> ,/ :nohlsearch<CR>
 let NERDTreeIgnore=[]
 noremap <C-N> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" show dotfiles
+let NERDTreeShowHidden=1
+
 
 " prevents arrow keys
 " map <up> <nop>
