@@ -49,6 +49,8 @@ After a few minutes, Packer should tell you the box was generated successfully, 
 
 > **Note**: This configuration includes a post-processor that pushes the built box to Vagrant Cloud (which requires a `VAGRANT_CLOUD_TOKEN` environment variable to be set); remove the `vagrant-cloud` post-processor from the Packer template to build the box locally and not push it to Vagrant Cloud. You don't need to specify a `version` variable either, if not using the `vagrant-cloud` post-processor.
 
+- To use spark: Download spark (not including installation in this packer setup currently), and then move to home folder and rename to `spark`. This allows use of env var that is set in .bashrc automatically
+
 ### Building _all_ the boxes
 #### NOTE no longer doing, unless we add ansible back in
 
@@ -61,6 +63,7 @@ Assuming you have Ansible and Packer installed already, and you have a `VAGRANT_
 You can also build and push just one box:
 
     ansible-playbook build-boxes.yml -e "{'boxes':['debian10']}"
+
 
 ## Development
 when ready to make a new version, update the version in the box-config
@@ -84,3 +87,4 @@ MIT
 ## Original Author
 
 Based on configurations are maintained by [Jeff Geerling](https://www.jeffgeerling.com), author of [Ansible for DevOps](https://www.ansiblefordevops.com).
+

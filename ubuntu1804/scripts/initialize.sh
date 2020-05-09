@@ -11,10 +11,13 @@ apt -y install software-properties-common
 #######################
 # get some dev env stuff setup
 echo "****************************"
-echo "now getting vim"
+echo "now getting vim and other standard dev tools"
 apt-get -y install vim
-apt-get -y install screen
+
+# not doing screen anymore
+apt-get -y install tmux
 apt -y install net-tools
+sudo apt -y install tree
 
 # java 8
 # TODO move to separate file

@@ -174,7 +174,15 @@ eval "$(pyenv virtualenv-init -)"
 source "/etc/profile.d/rvm.sh"
 
 # for use with spark locally
+# can now cal $SPARK_HOME/bin/spark-shell
 export SPARK_HOME="/home/$USER/spark"
+# one tutorial had this...but not sure if necessary
+# export PATH=$SPARK_HOME/bin:$PATH
 
+# for using confluent hub, which is where you get kafka connectors
+export PATH="/home/$USER/confluent-hub-client-latest/bin:$PATH"
+
+# set java home
+export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
 
 

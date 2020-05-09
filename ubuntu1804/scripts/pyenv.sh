@@ -10,3 +10,4 @@ exec $SHELL
 # I don't know what I want with 2.7.18 at this point...but probably will
 pyenv install 3.7.7
 pyenv install 2.7.18
+pyenv global 2.7.18 3.7.7
