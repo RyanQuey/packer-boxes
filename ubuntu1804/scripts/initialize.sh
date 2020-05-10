@@ -19,6 +19,12 @@ apt-get -y install tmux
 apt -y install net-tools
 sudo apt -y install tree
 
+
+# install snap
+sudo apt -y install snapd
+# heroku
+snap install --classic heroku
+
 # java 8
 # TODO move to separate file
 sudo apt-get -y install openjdk-8-jdk
