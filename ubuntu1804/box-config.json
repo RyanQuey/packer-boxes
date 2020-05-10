@@ -3,6 +3,12 @@
     "version": "0.1.0"
   },
   "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sleep 30"
+      ]
+    },
 		{
 			"type": "file",
 			"source": "../shared/home-configs/.inputrc",
@@ -30,7 +36,7 @@
 		},
 		{
 			"type": "file",
-			"source": "../shared/home-configs/.vim/",
+			"source": "../shared/home-configs/.vim",
 			"destination": "/home/vagrant/.vim"
 		},
     {
@@ -121,7 +127,7 @@
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "1024"
+          "2048"
         ],
         [
           "modifyvm",
