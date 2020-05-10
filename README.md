@@ -1,10 +1,13 @@
 # Jeff Geerling's Vagrant Box Packer Builds, with some edits by Ryan Quey
 
+
 ## Home config files: 
 make sure to put in the `shared/home-configs` and layout as if it was the home folder
 
 - Make sure to set VAGRANT_CLOUD_TOKEN on your [tokens page](https://app.vagrantup.com/settings/security).
 - in cmder, would use admin console, and `setx VAGRANT_CLOUD_TOKEN "..." /M`
+
+- Make some changes in the dev env and want to update this repository? Run the `update-home-configs.sh` script in the `shared/home-configs` folder and it will copy all of the home configs I use over automatically
 ## Different build jsons
 ![Validate Packer JSON files](https://github.com/geerlingguy/packer-boxes/workflows/Validate%20Packer%20JSON%20files/badge.svg)
 
@@ -46,6 +49,8 @@ After a few minutes, Packer should tell you the box was generated successfully, 
 
 > **Note**: This configuration includes a post-processor that pushes the built box to Vagrant Cloud (which requires a `VAGRANT_CLOUD_TOKEN` environment variable to be set); remove the `vagrant-cloud` post-processor from the Packer template to build the box locally and not push it to Vagrant Cloud. You don't need to specify a `version` variable either, if not using the `vagrant-cloud` post-processor.
 
+- To use spark: Download spark (not including installation in this packer setup currently), and then move to home folder and rename to `spark`. This allows use of env var that is set in .bashrc automatically
+
 ### Building _all_ the boxes
 #### NOTE no longer doing, unless we add ansible back in
 
@@ -58,6 +63,7 @@ Assuming you have Ansible and Packer installed already, and you have a `VAGRANT_
 You can also build and push just one box:
 
     ansible-playbook build-boxes.yml -e "{'boxes':['debian10']}"
+
 
 ## Development
 when ready to make a new version, update the version in the box-config
@@ -81,3 +87,4 @@ MIT
 ## Original Author
 
 Based on configurations are maintained by [Jeff Geerling](https://www.jeffgeerling.com), author of [Ansible for DevOps](https://www.ansiblefordevops.com).
+

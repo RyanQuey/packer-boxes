@@ -7,7 +7,8 @@ gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703
 apt-add-repository -y ppa:rael-gc/rvm
 apt-get -y update
 apt-get -y install rvm
-echo 'source "/etc/profile.d/rvm.sh"' >> ~/.bashrc
+# refresh the shell
+exec $SHELL
 
 # don't get any for now, not sure what I'll be working on in future
 # rvm install ruby

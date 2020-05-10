@@ -13,13 +13,23 @@ let g:javascript_plugin_jsdoc=1
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 syntax on
+
+"""""""""""""""""""""""""'
+" Colors
+""""""""""""'''
+" Really like onedark, but wombat is better since it is easier to read in
+" general
 " wombat is also good, as is desert, and blackboard, but ones based on Atom are the best. 
 " Might try monokai-black sometime too, for strong black background 
-" onedark is great, but takes more configuration and cmder doesn't like 24bit
-" color, unless I can set that up. default looks great on cmder
-colorscheme default 
+"
+
+" FOR non-24bit color: 
+" default will be either peachpuff or ron apparently. But changes when enter
+" screen. I like both actually, but ron more since it's brighter
+" badwolf is best for java, since it supports some extra syntax highlighting
+colorscheme wombat
 let g:lightline = {
-  \ 'colorscheme': 'default',
+  \ 'colorscheme': 'wombat',
   \ }
 
 " set colors to 256
@@ -39,6 +49,7 @@ nmap <silent> ,/ :nohlsearch<CR>
 let NERDTreeIgnore=[]
 noremap <C-N> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden=1
 
 " prevents arrow keys
 " map <up> <nop>
@@ -82,6 +93,9 @@ set number
 set undolevels=1000 " larger undo history
 set wildignore=*.swp " ignore swp files
 set clipboard=unnamed " yank will copy to system clipboard
+
+" I think pastetoggle and mouse aren't working
+" scrolling isn't working right now either
 set pastetoggle=<F5> " F5 in insert allows for pasting w/o indent
 set mouse=a
 
