@@ -1,0 +1,168 @@
+{
+    "_comment": "Build with `packer build ubuntu.json`. Based on https://github.com/heizo/packer-ubuntu-18.04, but using provisioners from main box-config",
+    "_comment2": "need to have these <wait> tags or text gets put in too fast and it doesn't catch, leading to things like 'instl' instead of 'install' ",
+    "builders": [{
+        "boot_command": [
+          "{{user `boot_command_prefix`}}",
+          "<wait>",
+          "/install/vmlinuz <wait>noapic ",
+          "<wait>",
+          " initrd=<wait>/install/initrd.gz ",
+          "<wait>",
+          " preseed/<wait>url=http://{{.HTTPIP}}:<wait>{{.HTTPPort}}/{{user `preseed`}} ",
+          "<wait>",
+          " debian-<wait>installer=en_US <wait>auto <wait>locale=en_US <wait>kbd-chooser<wait>/method=us ",
+          "<wait>",
+          " hostname={{user `hostname`}} ",
+          "<wait>",
+          " grub-installer/<wait>bootdev=/dev/sda<wait> ",
+          "<wait>",
+          " fb=false <wait>debconf/frontend<wait>=noninteractive ",
+          "<wait>",
+          " keyboard-configuration/<wait>modelcode=SKIP<wait> keyboard-configuration<wait>/layout=USA ",
+          "<wait>",
+          " keyboard-<wait>configuration<wait>/variant=USA<wait> console-setup/<wait>ask_detect=false ",
+          "<wait>",
+          " passwd/<wait>user-fullname<wait>={{user `ssh_fullname`}} ",
+          "<wait>",
+          " passwd/<wait>user-password<wait>={{user `ssh_password`}} ",
+          "<wait>",
+          " passwd/<wait>user-password-again<wait>={{user `ssh_password`}} ",
+          "<wait>",
+          " passwd/username<wait>={{user `ssh_username`}} ",
+          "<wait>",
+          "-- <enter>"
+        ],
+        "disk_size": "{{user `disk_size`}}",
+        "cpus": 2,
+        "memory": 2024,
+        "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+        "guest_os_type": "{{user `virtualbox_guest_os_type`}}",
+        "hard_drive_interface": "sata",
+        "headless": "{{user `headless`}}",
+        "http_directory": "http",
+        "iso_checksum": "{{user `iso_checksum`}}",
+        "iso_checksum_type": "{{user `iso_checksum_type`}}",
+        "iso_urls": [
+            "{{user `iso_path`}}/{{user `iso_name`}}",
+            "{{user `iso_url`}}"
+        ],
+        "output_directory": "output-{{user `vm_name`}}-virtualbox-iso",
+        "shutdown_command": "echo '{{user `ssh_password`}}'|sudo -S shutdown -P now",
+        "ssh_password": "{{user `ssh_password`}}",
+        "ssh_username": "{{user `ssh_username`}}",
+        "ssh_wait_timeout": "10000s",
+        "type": "virtualbox-iso",
+        "vboxmanage": [
+            ["modifyvm", "{{.Name}}", "--audio", "none"],
+            ["modifyvm", "{{.Name}}", "--usb", "off"],
+            ["modifyvm", "{{.Name}}", "--vram", "12"],
+            ["modifyvm", "{{.Name}}", "--vrde", "off"],
+            ["modifyvm", "{{.Name}}", "--nictype1", "virtio"],
+            ["modifyvm", "{{.Name}}", "--memory", "{{user `memory`}}"],
+            ["modifyvm", "{{.Name}}", "--cpus", "{{user `cpus`}}"]
+        ],
+        "virtualbox_version_file": ".vbox_version",
+        "vm_name": "{{user `vm_name`}}"
+    }],
+    "post-processors": [{
+        "keep_input_artifact": false,
+        "output": "builds/easy-boot-{{timestamp}}-{{.Provider}}-ubuntu1804.box",
+        "type": "vagrant",
+        "vagrantfile_template": "{{user `vagrantfile_template`}}"
+    }],
+    "provisioners": [
+      {
+        "type": "file",
+        "source": "../shared/home-configs/.inputrc",
+        "destination": "/home/{{user `ssh_username`}}/"
+      },
+      {
+        "type": "file",
+        "source": "../shared/home-configs/.bashrc",
+        "destination": "/home/{{user `ssh_username`}}/"
+      },
+      {
+        "type": "file",
+        "source": "../shared/home-configs/.vimrc",
+        "destination": "/home/{{user `ssh_username`}}/"
+      },
+      {
+        "type": "file",
+        "source": "../shared/home-configs/.gitconfig",
+        "destination": "/home/{{user `ssh_username`}}/"
+      },
+      {
+        "type": "file",
+        "source": "../shared/home-configs/.gitignore",
+        "destination": "/home/{{user `ssh_username`}}/"
+      },
+      {
+        "type": "file",
+        "source": "../shared/home-configs/.vim",
+        "destination": "/home/{{user `ssh_username`}}/"
+      },
+      {
+        "type": "shell",
+        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+        "script": "scripts/initialize.sh"
+      },
+      {
+        "type": "shell",
+        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+        "script": "scripts/docker.sh"
+      },
+      {
+        "type": "shell",
+        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+        "script": "scripts/nvm.sh"
+      },
+      {
+        "type": "shell",
+        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+        "script": "scripts/pyenv.sh"
+      },
+      {
+        "type": "shell",
+        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+        "script": "scripts/rvm.sh"
+      },
+      {
+        "type": "shell",
+        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+        "script": "scripts/setup-vagrant.sh"
+      },
+      {
+        "type": "shell",
+        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+        "script": "scripts/cleanup.sh"
+      }
+    ],
+    "variables": {
+        "boot_command_prefix": "<wait><enter><wait><f6><wait><esc><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "cpus": "2",
+        "disable_ipv6": "true",
+        "disk_size": "64960",
+        "headless": "true",
+        "hostname": "bionic64",
+        "http_proxy": "{{env `http_proxy`}}",
+        "https_proxy": "{{env `https_proxy`}}",
+        "iso_checksum": "e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b",
+        "iso_checksum_type": "sha256",
+        "iso_name": "ubuntu-18.04.4-server-amd64.iso",
+        "iso_path": "iso",
+        "iso_url": "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.4-server-amd64.iso",
+        "memory": "2048",
+        "no_proxy": "{{env `no_proxy`}}",
+        "preseed": "preseed.cfg",
+        "ssh_fullname": "vagrant",
+        "ssh_password": "vagrant",
+        "ssh_username": "vagrant",
+        "update": "true",
+        "vagrantfile_template": ".\\Vagrantfile",
+        "version": "0.2",
+        "virtualbox_guest_os_type": "Ubuntu_64",
+        "vm_name": "ubuntu-18.04"
+    }
+}
+
