@@ -29,3 +29,10 @@ newgrp docker
 # so docker has access to its own folder, give it access
 # TODO TEST I don't know if this is needed. Seemed to be needed for pulling apache/nifi image, or if not, it was adding the `usermod` or `groupadd` commands that I added after this chown command that did it. Ie., either need both that and this, or just that, and not this.
 sudo chown :docker -R /var/lib/docker/tmp
+
+# docker compose
+# Download deliverable and move to target location
+sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+# Allow execution
+sudo chmod +x /usr/local/bin/docker-compose
