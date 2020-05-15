@@ -7,6 +7,7 @@
 # Install some basic repositories
 apt -y update && apt-get -y upgrade
 apt -y install software-properties-common
+apt -y install apt-transport-https ca-certificates curl
 
 #######################
 # get some dev env stuff setup
