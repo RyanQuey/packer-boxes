@@ -184,5 +184,3 @@ export PATH="/home/$USER/confluent-hub-client-latest/bin:$PATH"
 
 # set java home
 export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
-
-
