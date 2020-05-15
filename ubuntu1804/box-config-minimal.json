@@ -34,7 +34,7 @@
           "-- <enter>"
         ],
         "disk_size": "{{user `disk_size`}}",
-        "cpus": 2,
+        "cpus": 3,
         "memory": 2024,
         "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
         "guest_os_type": "{{user `virtualbox_guest_os_type`}}",

@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
   # config.ssh.insert_key = false
   config.vm.synced_folder ".", "/vagrant"
   # add another one to the one we like to share with vms
-  config.vm.synced_folder "../shared-with-vm", "/home/vagrant/shared-with-vm"
+  config.vm.synced_folder "C:\\Users\\queyr\\shared-with-vm", "/home/vagrant/shared-with-vm"
 
   # VirtualBox.
   config.vm.define "virtualbox" do |virtualbox|
@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider :virtualbox do |v|
       v.gui = false
       v.memory = 6000
-      v.cpus = 2
+      v.cpus = 3
       # not sure why I would want these
       # v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       # v.customize ["modifyvm", :id, "--ioapic", "on"]
