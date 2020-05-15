@@ -1,6 +1,5 @@
 #!/bin/bash -eux
 
-: <<'END_COMMENT'
 # docker
 # see https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
 echo "****************************"
@@ -33,4 +32,3 @@ newgrp docker  && \
 # TODO TEST I don't know if this is needed. Seemed to be needed for pulling apache/nifi image, or if not, it was adding the `usermod` or `groupadd` commands that I added after this chown command that did it. Ie., either need both that and this, or just that, and not this.
 # this is the one that, if it doesn't run, will break the whole thing, and then packer will destroy the vm. presumably breaks if the directory below doesn't exist, which is definitely true if docker doesn't install, maybe true anyways if it does install
 sudo chown :docker -R /var/lib/docker/tmp
-END_COMMENT

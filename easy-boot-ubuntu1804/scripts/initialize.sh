@@ -4,6 +4,11 @@
 # if doesn't work when using packer, can always just call from vagrant too
 
 #######################
+
+# set acquire by hash, to fix hash sum mismathes (was getting all the time in Japan)
+# see here: https://unix.stackexchange.com/a/273441/216300
+echo "Acquire::By-Hash \"yes\"; ">/etc/apt/apt.conf.d/01byhash
+
 # Install some basic repositories
 apt -y update && apt-get -y upgrade
 apt -y install software-properties-common
