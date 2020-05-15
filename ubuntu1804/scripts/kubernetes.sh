@@ -16,6 +16,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 
 # kind, which helps manage use kubernetes in development
+# from kubernetes tutorial by DataStax https://github.com/DataStax-Academy/kubernetes-workshop-online/tree/master/0-setup-your-cluster
 curl -Lo ./kind https://github.com/kubernetes-sigs/kind/releases/download/v0.7.0/kind-$(uname)-amd64
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
