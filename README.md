@@ -1,4 +1,4 @@
-# Jeff Geerling's Vagrant Box Packer Builds, with some edits by Ryan Quey
+# Linux Packer configurations. Based on Jeff Geerling's Packer build configurations for Vagrant boxes.
 
 
 ## Home config files: 

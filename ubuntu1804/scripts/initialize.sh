@@ -28,7 +28,8 @@ snap install --classic heroku
 
 # java 8
 # TODO move to separate file
-sudo apt-get -y install openjdk-8-jdk
+sudo apt -y install openjdk-11-jdk-headless
+sudo apt -y install openjdk-8-jdk-headless
 
 # maven for java
 sudo apt -y install maven
