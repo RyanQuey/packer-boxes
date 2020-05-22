@@ -19,9 +19,12 @@ apt -y install apt-transport-https ca-certificates curl
 echo "****************************"
 echo "now getting vim and other standard dev tools"
 apt-get -y install vim
+# nerdtree
+git clone https://github.com/preservim/nerdtree.git ~/.vim/bundle/nerdtree
 
 # not doing screen anymore
 apt-get -y install tmux
+
 apt -y install net-tools
 sudo apt -y install tree
 
