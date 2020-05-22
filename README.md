@@ -1,5 +1,6 @@
 # Linux Packer configurations. Based on Jeff Geerling's Packer build configurations for Vagrant boxes.
 
+TODO note that the easy-config box has all the latest scripts for ubuntu18.04 setup. Need to put in more generic spot probably 
 
 ## Home config files: 
 make sure to put in the `shared/home-configs` and layout as if it was the home folder
