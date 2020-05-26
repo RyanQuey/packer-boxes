@@ -25,6 +25,22 @@ apt-get -y install tmux
 apt -y install net-tools
 sudo apt -y install tree
 
+# YouCompleteMe
+## https://github.com/ycm-core/YouCompleteMe#linux-64-bit
+apt install -y build-essential cmake vim python3-dev
+git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
+git submodule update --init --recursive
+cd ~/.vim/bundle/YouCompleteMe
+
+
+## https://stackoverflow.com/a/40131786/6952495
+### assumes we have 3.6 installed, which I think we do automatically above with python3-dev (?)
+### if want go completion, need to install Go and add flag: --go-completer
+### Maybe don't want clang-completer, it's for C family and I don't use C, C# etc...but instructions say to use it in some places
+/usr/bin/python3.6 ./install.py --clang-completer --java-completer --ts-completer
+python3 install.py --all
+
+
 
 # install snap
 sudo apt -y install snapd

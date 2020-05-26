@@ -24,8 +24,8 @@ apt -y install docker-ce docker-ce-cli containerd.io && \
 # https://docs.docker.com/engine/install/linux-postinstall/
 # of course don't need sudo in here, since ran within root, but whatever
 sudo groupadd docker && \
-usermod -aG docker ${USER} && \
-# I think this refreshes the bash groups so that it makes sure it gets added
+usermod -aG docker vagrant && \
+# I think this refreshes the bash groups so that it makes sure it gets added...not strictly necessary in a packer config, but helpful if we call from inside vm sometime
 newgrp docker  && \
 
 # so docker has access to its own folder, give it access
