@@ -19,6 +19,7 @@ cd ~
 
 # latest branch as of 5/2020. But want to lock it in so is consistent with rest of configuration
 # https://stackoverflow.com/a/21699307/6952495 for specifying branch. --depth 1 keeps us from downloading whole repository: we only want this one branch
+## 8.2.0825 is MUCH cleaner and doesn't have so much noise and weird colors showing up, in comparison to the vim from apt-install. 
 git clone --depth 1 --branch "v8.2.0825" https://github.com/vim/vim.git
 
 cd vim
