@@ -8,8 +8,11 @@ which npm
 ## https://github.com/ycm-core/YouCompleteMe#linux-64-bit
 apt install -y build-essential cmake vim python3-dev
 git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
-git submodule update --init --recursive
-cd ~/.vim/bundle/YouCompleteMe
+echo "*** finished cloning git repo for YCM; now installing"
+cd ~/.vim/bundle/YouCompleteMe && \
+
+# NOTE  git submodule update MUST be called from within ~/.vim/bundle/YouCompleteMe 
+sudo git submodule update --init --recursive && \
 
 
 ## https://stackoverflow.com/a/40131786/6952495
@@ -19,5 +22,5 @@ cd ~/.vim/bundle/YouCompleteMe
 ### Maybe don't want --clang-completer, it's for C family and I don't use C, C# etc...but instructions say to use it in some places
 ### --all only works if we have go and mono-complete installed already. Not doing for now
 # /usr/bin/python3.6 ./install.py --all
-/usr/bin/python3.6 ./install.py  --java-completer --ts-completer
+sudo /usr/bin/python3.6 ./install.py  --java-completer --ts-completer
 
