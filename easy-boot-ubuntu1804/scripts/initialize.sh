@@ -17,21 +17,11 @@ apt -y install apt-transport-https ca-certificates curl
 #######################
 # get some dev env stuff setup
 echo "****************************"
-echo "now getting vim and other standard dev tools"
-## Easier, but not latest version: 
-### apt-get -y install vim
-# We want at least 8.2 for YouCompleteMe. So doing:
-git clone https://github.com/vim/vim.git
-cd vim/src
-make
-sudo make install
-# cleanup
-cd ../..
-rm -rf vim/
+sudo bash ./vim.sh
 
-# nerdtree
-git clone https://github.com/preservim/nerdtree.git ~/.vim/bundle/nerdtree
 
+echo "****************************"
+echo "now getting some other standard dev tools"
 # make sure we use the global gitignore
 git config --global core.excludesfile ~/.gitignore
 
@@ -40,23 +30,6 @@ apt-get -y install tmux
 
 apt -y install net-tools
 sudo apt -y install tree
-
-# YouCompleteMe
-## https://github.com/ycm-core/YouCompleteMe#linux-64-bit
-apt install -y build-essential cmake vim python3-dev
-git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
-git submodule update --init --recursive
-cd ~/.vim/bundle/YouCompleteMe
-
-
-## https://stackoverflow.com/a/40131786/6952495
-### assumes we have 3.6 installed, which I think we do automatically above with python3-dev (?)
-### NOTE YCM recommends at least vim 8.1 for java completion, and default as of May 2020 is 8.0
-### if want go completion, need to install Go and add flag: --go-completer
-### Maybe don't want --clang-completer, it's for C family and I don't use C, C# etc...but instructions say to use it in some places
-### --all only works if we have go and mono-complete installed already. Not doing for now
-# /usr/bin/python3.6 ./install.py --all
-/usr/bin/python3.6 ./install.py  --java-completer --ts-completer
 
 # install snap
 sudo apt -y install snapd
