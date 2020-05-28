@@ -3,3 +3,6 @@
 ## arrow down 
 "\e[B":history-search-forward
 
+# https://serverfault.com/a/381098/458928
+"\eOD": backward-word     # ctrl + left 
+"\eOC": forward-word      # ctrl + right
