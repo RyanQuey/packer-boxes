@@ -14,3 +14,13 @@ sudo apt-get -y install dse-full
 
 sudo mkdir -p /var/lib/cassandra; sudo chown -R $USER:$GROUP /var/lib/cassandra
 sudo mkdir -p /var/log/cassandra; sudo chown -R $USER:$GROUP /var/log/cassandra
+
+# for analytics
+# https://docs.datastax.com/en/install/6.8/install/installTARdse.html
+sudo mkdir -p /var/lib/dsefs; sudo chown -R $USER:$GROUP /var/lib/dsefs && 
+  sudo mkdir -p /var/lib/spark; sudo chown -R $USER:$GROUP /var/lib/spark && 
+  sudo mkdir -p /var/log/spark; sudo chown -R $USER:$GROUP /var/log/spark &&
+  sudo mkdir -p /var/lib/spark/rdd; sudo chown -R $USER:$GROUP /var/lib/spark/rdd  &&
+  sudo mkdir -p /var/log/spark/master; sudo chown -R $USER:$GROUP /var/log/spark/master  &&
+  sudo mkdir -p /var/log/spark/alwayson_sql; sudo chown -R $USER:$GROUP /var/log/spark/alwayson_sql  &&
+  sudo mkdir -p /var/lib/spark/worker; sudo chown -R $USER:$GROUP /var/lib/spark/worker
