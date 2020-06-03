@@ -26,10 +26,10 @@ syntax on
 " FOR non-24bit color: 
 " default will be either peachpuff or ron apparently. But changes when enter
 " screen. I like both actually, but ron more since it's brighter
-" badwolf is best for java, since it supports some extra syntax highlighting
-colorscheme wombat
+" badwolf or if not, ron, is best for java, since it supports some extra syntax highlighting
+colorscheme badwolf
 let g:lightline = {
-  \ 'colorscheme': 'wombat',
+  \ 'colorscheme': 'badwolf',
   \ }
 
 " set colors to 256
@@ -141,3 +141,14 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|sv
 " python indenting
 let g:pyindent_open_paren = 'shiftwidth()*2' " rather than *2
 let g:pyindent_continue = 'shiftwidth()*2' " rather than *2
+
+" Allows writing to files with root priviledges with :w!!
+cmap w!! w !sudo tee % > /dev/null
+
+" Some youCompleteMe stuff
+"" turn off docs popup on delay. Just call :YcmCompleter GetDoc if I want them
+let g:ycm_auto_hover = ""
+
+"" with vim v. 8.2, this finally works and removes the colors on right side of
+"" screen
+set cc=""
