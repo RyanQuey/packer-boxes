@@ -24,3 +24,5 @@ sudo mkdir -p /var/lib/dsefs; sudo chown -R $USER:$GROUP /var/lib/dsefs &&
   sudo mkdir -p /var/log/spark/master; sudo chown -R $USER:$GROUP /var/log/spark/master  &&
   sudo mkdir -p /var/log/spark/alwayson_sql; sudo chown -R $USER:$GROUP /var/log/spark/alwayson_sql  &&
   sudo mkdir -p /var/lib/spark/worker; sudo chown -R $USER:$GROUP /var/lib/spark/worker
+
+# maybe add sudo chown -R $USER:$GROUP /etc/dse/hadoop2-client/. One time it seemed to be needed, but then also needed to run the above afterward to get it to work, so maybe actually just needed to do the above and not change permissions for hadoop2-clinet dir?
