@@ -33,6 +33,7 @@ sudo apt -y install tree
 
 # install snap
 sudo apt -y install snapd
+## TODO move to different file
 # heroku
 snap install --classic heroku
 

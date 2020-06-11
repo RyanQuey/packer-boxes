@@ -7,12 +7,12 @@
 echo "****************************"
 echo "now getting datastax (dse) tarball"
 sudo apt-get -y install libaio1
-curl -LO https://downloads.datastax.com/enterprise/dse-6.8.tar.gz | tar xz
+curl -L https://downloads.datastax.com/enterprise/dse-6.8.tar.gz | tar xz
 
 
 echo "****************************"
 echo "now getting DSE studio "
-curl -LO https://downloads.datastax.com/datastax-studio/datastax-studio-6.8.0.tar.gz | tar xz
+curl -L https://downloads.datastax.com/datastax-studio/datastax-studio-6.8.0.tar.gz | tar xz
 
 
 # These permissions I think don't work by default, unless we change the authentication? Or maybe using dse cassandra rather than service dse start? 

@@ -32,6 +32,9 @@
 *.zip
 *.msi
 
+# for java file builds
+*.class 
+
 # Logs and databases #
 ######################
 *.log
