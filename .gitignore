@@ -4,3 +4,6 @@
 iso/*
 .vagrant/*
 centos6/roles/*
+
+# users should just compile this on their own
+shared/home-configs/.vim/bundle/YouCompleteMe/
