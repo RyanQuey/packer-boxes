@@ -8,7 +8,10 @@
 #
 # make sure the aws user has permission however.
 # see here: https://docs.aws.amazon.com/cloud9/latest/user-guide/troubleshooting.html#troubleshooting-access-not-authorized
+# to do this, login to this ec2 using root user or an admin user
+# ***OR just change the size in the console, and then just run the _partition-hd.sh script on its own***
 
+# NOTE make sure to run from within the EC2 instance itself
 # Specify the desired volume size in GiB as a command-line argument. If not specified, default to 20 GiB.
 SIZE=${1:-20}
 
@@ -35,4 +38,4 @@ sleep 1
 done
 
 # refactoring partitioning out so can call on its own if needed
-bash ./_partion-hd.sh
+bash $HOME/projects/packer-boxes/shared/setup-scripts/_partion-hd.sh
