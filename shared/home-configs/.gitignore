@@ -32,8 +32,12 @@
 *.zip
 *.msi
 
-# for java file builds
-*.class 
+# RQ for built/compiled java 
+*.class
+.classpath
+.project
+.settings/
+target/
 
 # Logs and databases #
 ######################

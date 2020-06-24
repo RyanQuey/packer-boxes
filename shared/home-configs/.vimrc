@@ -152,3 +152,7 @@ let g:ycm_auto_hover = ""
 "" with vim v. 8.2, this finally works and removes the colors on right side of
 "" screen
 set cc=""
+
+"" turn off markdown folding, since it's annoying
+set nofoldenable
+
