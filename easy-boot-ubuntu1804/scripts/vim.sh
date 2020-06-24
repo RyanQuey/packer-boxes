@@ -60,6 +60,6 @@ sudo update-alternatives --set vi /usr/local/bin/vim
 
 # nerdtree
 git clone https://github.com/preservim/nerdtree.git ~/.vim/bundle/nerdtree
-git clone https://github.com/maxmellon/vim-jsx-pretty ~/.vim/bundle/vim-jsx-pretty
+git clone https://github.com/sheerun/vim-polyglot ~/.vim/bundle/vim-polyglot
 
 sh ~/projects/packer-boxes/easy-boot-ubuntu1804/scripts/_you_complete_me.sh
