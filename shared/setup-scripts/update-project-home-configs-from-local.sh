@@ -12,6 +12,8 @@ cp ~/.inputrc ~/projects/packer-boxes/shared/home-configs/
 
 cp ~/.gitconfig ~/projects/packer-boxes/shared/home-configs/
 cp ~/.gitignore ~/projects/packer-boxes/shared/home-configs/
+# ycm global config file. file name is important, needed for vimrc to work
+cp ~/global_extra_conf.py ~/projects/packer-boxes/shared/home-configs/
 
 # this will try to copy things that we won't keep, like YCM. But whatever
 cp -r ~/.vim ~/projects/packer-boxes/shared/home-configs/
