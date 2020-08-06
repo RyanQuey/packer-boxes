@@ -27,9 +27,9 @@ syntax on
 " default will be either peachpuff or ron apparently. But changes when enter
 " screen. I like both actually, but ron more since it's brighter
 " badwolf or if not, ron, is best for java, since it supports some extra syntax highlighting
-colorscheme badwolf
+colorscheme ron
 let g:lightline = {
-  \ 'colorscheme': 'badwolf',
+  \ 'colorscheme': 'ron',
   \ }
 
 " set colors to 256
