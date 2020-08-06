@@ -6,8 +6,8 @@ mkdir -p $HOME/projects
 
 git clone https://github.com/RyanQuey/packer-boxes.git $HOME/projects/packer-boxes
 
-sudo bash $HOME/projects/packer-boxes/shared/setup-scripts/update-local-from-home-configs.sh
-sudo bash $HOME/projects/packer-boxes/shared/setup-scripts/make-current-user-owner.sh
+bash $HOME/projects/packer-boxes/shared/setup-scripts/update-local-from-home-configs.sh
+bash $HOME/projects/packer-boxes/shared/setup-scripts/make-current-user-owner.sh
 
 
 
