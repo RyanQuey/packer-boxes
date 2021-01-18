@@ -36,17 +36,13 @@ sudo apt -y install snapd
 ## TODO move to different file
 # heroku
 snap install --classic heroku
-
+ 
 # java 8
 # TODO move to separate file
 sudo apt-get -y install openjdk-8-jdk
 
 # maven for java
 sudo apt -y install maven
-
-# Postgres
-# https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04
-sudo apt -y install postgresql postgresql-contrib
 
 ######################
 # setup my dev env folders
