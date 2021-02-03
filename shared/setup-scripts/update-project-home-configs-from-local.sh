@@ -7,6 +7,8 @@ cp $HOME/.vimrc $HOME/projects/packer-boxes/shared/home-configs/
 
 cp $HOME/.tmux.conf $HOME/projects/packer-boxes/shared/home-configs/
 
+cp ~/.bashrc ~/projects/packer-boxes/shared/home-configs/
+cp ~/.bash_profile ~/projects/packer-boxes/shared/home-configs/
 cp $HOME/.bashrc $HOME/projects/packer-boxes/shared/home-configs/
 cp $HOME/.inputrc $HOME/projects/packer-boxes/shared/home-configs/
 

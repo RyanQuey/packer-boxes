@@ -167,6 +167,10 @@ export NVM_DIR="$HOME/.nvm"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# for pyenv
+# export PATH="/home/$USER/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 source "/etc/profile.d/rvm.sh"
 
 # for use with spark locally
@@ -182,3 +186,14 @@ export PATH="/home/$USER/confluent-hub-client-latest/bin:$PATH"
 export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
 # for dsbulk 
 export PATH="$HOME/dsbulk-1.5.0/bin:$PATH"
+
+# for jupyter # https://github.com/jupyterlab/jupyterlab#pip
+export PATH="$HOME/.local/bin:$PATH"
+
+# for AWS, returns the ip address of the box. TODO add a better conditional so only runs on aws
+if [ $PWD == ~/environment ]; then 
+  # for AWS, so don't start on ~/environment
+  cd ~
+  echo "ip for aws box:"
+  curl http://169.254.169.254/latest/meta-data/public-ipv4
+fi
