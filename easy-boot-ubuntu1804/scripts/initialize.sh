@@ -14,6 +14,8 @@ apt -y update && apt-get -y upgrade
 apt -y install software-properties-common
 apt -y install apt-transport-https ca-certificates curl
 
+echo progress-bar >> ~/.curlrc
+
 #######################
 # get some dev env stuff setup
 echo "****************************"
