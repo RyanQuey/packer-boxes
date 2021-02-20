@@ -14,6 +14,11 @@ cd ~/.vim/bundle/YouCompleteMe && \
 # NOTE  git submodule update MUST be called from within ~/.vim/bundle/YouCompleteMe 
 sudo git submodule update --init --recursive && \
 
+# fix due to (apparently) recent changes as of 02/21
+# https://stackoverflow.com/a/65284832/6952495
+sudo apt-get install g++-8
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 700 --slave /usr/bin/g++ g++ /usr/bin/g++-7
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
 
 ## https://stackoverflow.com/a/40131786/6952495
 ### assumes we have 3.6 installed, which I think we do automatically above with python3-dev (?)
