@@ -40,6 +40,27 @@
 .settings/
 target/
 
+# for scala build tools
+# https://github.com/scalameta/metals/blob/main/.gitignore
+**/.bloop
+**/.metals
+.metals/
+.ammonite/
+metals.sbt
+metals/project/
+project/metals.sbt
+coursier
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.bsp/
+.idea
+
+
+# vscode
+.vscode/
+
 # Logs and databases #
 ######################
 *.log
