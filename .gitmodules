@@ -1,0 +1,9 @@
+[submodule "shared/home-configs/.vim/bundle/nerdtree"]
+	path = shared/home-configs/.vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "shared/home-configs/.vim/bundle/YouCompleteMe"]
+	path = shared/home-configs/.vim/bundle/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe.git
+[submodule "shared/home-configs/.vim/bundle/onedark-vim"]
+	path = shared/home-configs/.vim/bundle/onedark-vim
+	url = https://github.com/joshdick/onedark.vim.git
