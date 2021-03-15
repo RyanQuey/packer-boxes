@@ -1,0 +1,8 @@
+# copying example from https://github.com/Backblaze/B2_Command_Line_Tool/blob/master/doc/bash_completion.md, which makes sense to me. 
+# Separates the different completion commands into multiple files
+if [ -d "$HOME/.bash_completion.d" ]; then
+    for file in "$HOME/.bash_completion.d/"*
+        do
+        source "$file" >/dev/null 2>&1
+    done
+fi
