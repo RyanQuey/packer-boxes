@@ -9,5 +9,5 @@ source $parent_path/_shared_vars.sh
 
 # https://stackoverflow.com/a/50359929/6952495
 # be careful with eval! BUt ok since it all comes from within our own script
-eval "cp -r $HOME/projects/packer-boxes/shared/home-configs/$HOME_CONFIGS_TO_SYNC_WITH_PACKER_REPO ~/"
+eval "cp -r $HOME/projects/packer-boxes/shared/home-configs/{$HOME_CONFIGS_TO_SYNC_WITH_PACKER_REPO} ~/"
 exec $SHELL
