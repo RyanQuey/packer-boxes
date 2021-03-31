@@ -20,6 +20,11 @@ sudo apt-get install g++-8
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 700 --slave /usr/bin/g++ g++ /usr/bin/g++-7
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
 
+# if get error: YouCompleteMe unavailable: requires Vim compiled with Python (3.6.0+) support.
+# can try this to see if python3 is supportred: vim --version |grep python
+# https://github.com/ycm-core/YouCompleteMe/issues/2573#issuecomment-423397397
+# if not, rebuild vim. If haven't already, might have to delete ~/vim dir to get code again.
+
 
 ## https://stackoverflow.com/a/40131786/6952495
 ### assumes we have 3.6 installed, which I think we do automatically above with python3-dev (?)
