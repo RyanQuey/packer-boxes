@@ -20,6 +20,12 @@ sudo apt-get install g++-8
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 700 --slave /usr/bin/g++ g++ /usr/bin/g++-7
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
 
+# if get error: YouCompleteMe unavailable: requires Vim compiled with Python (3.6.0+) support.
+# can try this to see if python3 is supportred: vim --version |grep python
+# https://github.com/ycm-core/YouCompleteMe/issues/2573#issuecomment-423397397
+# if not, rebuild vim. If haven't already, might have to delete ~/vim dir to get code again.
+
+
 ## https://stackoverflow.com/a/40131786/6952495
 ### assumes we have 3.6 installed, which I think we do automatically above with python3-dev (?)
 ### NOTE YCM recommends at least vim 8.1 for java completion, and default as of May 2020 is 8.0
@@ -27,5 +33,9 @@ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /
 ### Maybe don't want --clang-completer, it's for C family and I don't use C, C# etc...but instructions say to use it in some places
 ### --all only works if we have go and mono-complete installed already. Not doing for now
 # /usr/bin/python3.6 ./install.py --all
-sudo /usr/bin/python3.6 ./install.py  --java-completer --ts-completer
+
+# don'tuse sudo, since can't use npm without sudo without further setup. 
+# therefore, need to change some permissions first
+sudo chown -R $USER . && \
+/usr/bin/python3.6 ./install.py  --java-completer --ts-completer
 

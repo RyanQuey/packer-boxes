@@ -197,3 +197,4 @@ if [ $PWD == ~/environment ]; then
   echo "ip for aws box:"
   curl http://169.254.169.254/latest/meta-data/public-ipv4
 fi
+source <(kubectl completion bash)

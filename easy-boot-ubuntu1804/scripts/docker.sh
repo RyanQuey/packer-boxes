@@ -1,20 +1,25 @@
 #!/bin/bash -eux
 
-# docker
+# setup everything for docker, docker compose
+
+# I think can't execute as root or this won't work (e.g., the $USER will fail). use:
+#
+#     sudo bash ./docker.sh
+#
 # see https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
 echo "****************************"
 echo "now getting docker"
-apt -y install apt-transport-https ca-certificates curl software-properties-common
+sudo apt -y install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-apt -y update
-apt-cache policy docker-ce
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo apt -y update
+sudo apt-cache policy docker-ce
 
 # these last ones are failing recently due to SHA sum mismatch; just don't run for now. Haven't tested with the new binary operators eitehr TODO
-apt -y install docker-ce docker-ce-cli containerd.io && \
+sudo apt -y install docker-ce docker-ce-cli containerd.io && \
 
-# I don't think it's necessary, but I'm not sure why not, since it's in official docker docs
-# systemctl enable docker
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
 
 # echo "docker status"
 # just check status
@@ -24,7 +29,7 @@ apt -y install docker-ce docker-ce-cli containerd.io && \
 # https://docs.docker.com/engine/install/linux-postinstall/
 # of course don't need sudo in here, since ran within root, but whatever
 sudo groupadd docker && \
-usermod -aG docker vagrant && \
+sudo usermod -aG docker ${USER:-ryan} && \
 # I think this refreshes the bash groups so that it makes sure it gets added...not strictly necessary in a packer config, but helpful if we call from inside vm sometime
 newgrp docker  && \
 

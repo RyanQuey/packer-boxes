@@ -46,7 +46,7 @@ make VIMRUNTIMEDIR=/usr/local/share/vim/vim82
 ##### sudo checkinstall
 sudo make install
 #### cleanup
-# rm -rf ~/vim/
+rm -rf ~/vim/
 
 #### set as default text editor
 sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim 1
