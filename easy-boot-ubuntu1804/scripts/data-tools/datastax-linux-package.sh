@@ -51,3 +51,9 @@ mkdir -p /var/lib/cassandra/commitlog && sudo chown -R cassandra:cassandra /var/
 
 # . One time it seemed to be needed, but then also needed to run the above afterward to get it to work, so maybe actually just needed to do the above and not change permissions for hadoop2-clinet dir?
 sudo chown -R cassandra:cassandra /etc/dse/hadoop2-client/
+
+# See here for what's next. https://docs.datastax.com/en/dse/6.8/dse-dev/datastax_enterprise/operations/startStop/startDseService.html
+# be sure to set what type of cluster this will be (e.g., analytics, search) before starting the first time
+
+# After that, can use this to start 
+# `sudo service dse start`
