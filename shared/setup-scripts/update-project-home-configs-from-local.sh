@@ -6,14 +6,17 @@
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 source $parent_path/_shared_vars.sh
 
+# make sure to run first, next command errors out
+# since .ssh folder has secure stuff, only want this one config
+# NOTE will generate errors like cp: cannot overwrite non-directory '/home/ryan/projects/packer-boxes/shared/home-configs/.vim/bundle/nerdtree/.git' with directory '/home/ryan/.vim/bundle/nerdtree/.git'
+# but that's fine, it's just because we made these projects in .vim/bundle submodules somewhere along the line, so .git is just a file. Don't need to update those
+
+# TODO just switch to rsync, this is getting ridiculous. And exclude YCM
+cp ~/.ssh/config $HOME/projects/packer-boxes/shared/home-configs/.ssh/config 
 # https://stackoverflow.com/a/50359929/6952495
 # be careful with eval! BUt ok since it all comes from within our own script
 eval "cp -r $HOME/{$HOME_CONFIGS_TO_SYNC_WITH_PACKER_REPO} $HOME/projects/packer-boxes/shared/home-configs/ "
 
-# since .ssh folder has secure stuff, only want this one config
-# NOTE will generate errors like cp: cannot overwrite non-directory '/home/ryan/projects/packer-boxes/shared/home-configs/.vim/bundle/nerdtree/.git' with directory '/home/ryan/.vim/bundle/nerdtree/.git'
-# but that's fine, it's just because we made these projects in .vim/bundle submodules somewhere along the line, so .git is just a file. Don't need to update those
-cp ~/.ssh/config $HOME/projects/packer-boxes/shared/home-configs/.ssh/config 
 
 
 
