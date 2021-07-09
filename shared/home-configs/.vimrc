@@ -49,9 +49,7 @@ nmap <silent> ,/ :nohlsearch<CR>
 let NERDTreeIgnore=[]
 noremap <C-N> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" For some reason defaults don't always get set, so need to set them yourself
-let g:NERDTreeNodeDelimiter="\x07"
-let g:NERDTreeGlyphReadOnly="RO"
+let NERDTreeShowHidden=1
 
 " prevents arrow keys
 " map <up> <nop>
