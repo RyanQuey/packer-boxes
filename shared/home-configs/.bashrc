@@ -197,3 +197,6 @@ if [ $PWD == ~/environment ]; then
   echo "ip for aws box:"
   curl http://169.254.169.254/latest/meta-data/public-ipv4
 fi
+
+# https://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent
+eval $(ssh-agent)
